@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+    <group >
+        <item
+
+             android:icon="@mipmap/ic_launcher"
+             android:id="@+id/tool1"
+              android:title="tool1"
+            />
+        <item android:id="@+id/tool2"
+              android:title="tool2"
+            />
+        <item android:id="@+id/tool3"
+              android:title="tool3"
+            />
+    </group>
+</menu>
