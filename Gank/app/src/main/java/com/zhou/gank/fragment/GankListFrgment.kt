@@ -2,6 +2,7 @@ package com.zhou.gank.fragment
 
 import android.os.Bundle
 import android.support.v7.widget.RecyclerView
+import android.util.Log
 import android.view.View
 import com.zhou.gank.R
 import com.zhou.gank.base.BaseLazyFragment
@@ -11,11 +12,11 @@ import org.jetbrains.anko.find
 /**
  * Created by zhou on 2017/10/25.
  */
-class  GankListFrgment : BaseLazyFragment(){
+class GankListFrgment : BaseLazyFragment() {
 
     companion object {
-        fun newInstance(bundle: Bundle):BaseLazyFragment{
-            var f =GankListFrgment()
+        fun newInstance(bundle: Bundle): BaseLazyFragment {
+            var f = GankListFrgment()
             f.arguments = bundle
             return f
         }
@@ -25,20 +26,19 @@ class  GankListFrgment : BaseLazyFragment(){
     override val layoutResId get() = R.layout.fragment_gank_list //To change initializer of created properties use File | Settings | File Templates.
 
     override fun initView(view: View?) {
-       var recycleView = view?.find<RecyclerView>(R.id.gank_list_recycle_view)
-       var type = arguments.getString(GANK_TYPE)
-
+        var recycleView = view?.find<RecyclerView>(R.id.gank_list_recycle_view)
+        var type = arguments.getString(GANK_TYPE)
+        Log.e("test", "initView -> $type")
     }
 
     override fun loadData() {
-
+        var type = arguments.getString(GANK_TYPE)
+        Log.e("test", "loadData -> $type")
     }
 
     override fun userUnVisible() {
 
     }
-
-
 
 
 }

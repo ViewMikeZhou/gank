@@ -19,16 +19,19 @@ class GankFragment : BaseFrament() {
     override val layoutResId: Int get() = R.layout.fragment_gank
 
     override fun initView(view: View?) {
+
         var gank_vp = view?.find<ViewPager>(R.id.gank_vp)
         var gank_tab = view?.find<TabLayout>(R.id.gank_tab)
+
         var fragmentList = arrayListOf<Fragment>()
-        var titleList = arrayListOf<String>("android", "ios", "瞎推荐", "扩展资源", "福利", "休息视频")
+        var titleList = arrayListOf<String>("Android", "iOS", "瞎推荐", "扩展资源", "福利", "休息视频")
         titleList.forEach {
             var b = Bundle().apply {
                 putString(GANK_TYPE, it)
             }
             fragmentList.add(GankListFrgment.newInstance(b))
         }
+
         gank_vp?.adapter = GankVpAdatper(childFragmentManager, fragmentList, titleList)
         gank_tab?.setupWithViewPager(gank_vp)
     }
