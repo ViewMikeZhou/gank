@@ -10,7 +10,7 @@
     </style>
 
     <!--toolbar的menu设置-->
-    <style name="ToolbarPopupTheme" parent="@style/ThemeOverlay.AppCompat.Dark">
+    <style name="ToolbarPopupTheme" parent="@style/ThemeOverlay.AppCompat.Light">
        <!-- <item name="android:colorBackground">#ffffff</item> 也可以设置背景色&ndash;&gt;-->
         <item name="actionOverflowMenuStyle">@style/OverflowMenuStyle</item>
     </style>

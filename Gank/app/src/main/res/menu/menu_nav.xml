@@ -4,16 +4,16 @@
     <group android:checkableBehavior="single">
 
         <item
-            android:id="@+id/nav_text"
+            android:id="@+id/nav_gank"
             android:icon="@mipmap/ic_launcher"
-            android:title="test1" />
+            android:title="gank" />
         <item
-            android:id="@+id/nav_pic"
+            android:id="@+id/nav_test2"
             android:icon="@mipmap/ic_launcher"
             android:title="test2" />
 
         <item
-            android:id="@+id/nav_gif"
+            android:id="@+id/nav_test3"
             android:icon="@mipmap/ic_launcher"
             android:title="test3" />
     </group>
@@ -23,14 +23,14 @@
 
 
             <item
-                android:id="@+id/nav_clear"
+                android:id="@+id/nav_setting"
                 android:icon="@mipmap/ic_launcher"
-                android:title="other1" />
+                android:title="设置" />
 
             <item
                 android:id="@+id/nav_about"
                 android:icon="@mipmap/ic_launcher"
-                android:title="other2" />
+                android:title="关于" />
 
 
         </menu>
