@@ -16,6 +16,7 @@ import retrofit2.Response
 class AndroidPrestentK : BasePresent<BaseGankView>() {
 
     override fun loadData() {
+
         IBseView.get()?.showProgress()
         RetrofitHelp.instance.retrofit.create(Api::class.java).androidData.enqueue(object : Callback<AndroidBeanResult> {
             override fun onFailure(call: Call<AndroidBeanResult>?, t: Throwable?) {

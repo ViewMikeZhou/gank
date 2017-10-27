@@ -12,11 +12,14 @@ import com.chad.library.adapter.base.baseAdapter.BaseViewHolder
 import com.zhou.gank.R
 import com.zhou.gank.adatper.AndroidDataAdapter
 import com.zhou.gank.adatper.IosDataAdapter
+import com.zhou.gank.adatper.SuggestDataAdatper
 import com.zhou.gank.base.BaseLazyFragment
 import com.zhou.gank.gank.m.AndroidBean
 import com.zhou.gank.gank.m.IosBean
+import com.zhou.gank.gank.m.SuggestBean
 import com.zhou.gank.gank.p.AndroidPrestentK
 import com.zhou.gank.gank.p.IosPrestentK
+import com.zhou.gank.gank.p.SuggestPretentk
 import com.zhou.gank.gank.v.BaseGankView
 import com.zhou.gank.util.GANK_TYPE
 import org.jetbrains.anko.find
@@ -26,9 +29,10 @@ import org.jetbrains.anko.find
  */
 class GankListFrgment : BaseLazyFragment(), BaseGankView {
 
+
     var recycleView: RecyclerView? = null
     var refresh: SwipeRefreshLayout? = null
-    var basePresent : BasePresent<BaseGankView> ? = null
+    var basePresent: BasePresent<BaseGankView>? = null
 
     companion object {
         fun newInstance(bundle: Bundle): BaseLazyFragment {
@@ -59,12 +63,9 @@ class GankListFrgment : BaseLazyFragment(), BaseGankView {
 
     private fun creatPresent(type: String?): BasePresent<BaseGankView>? {
         when (type) {
-            "Android" -> {
-                //  adapter = AndroidDataAdapter(R.layout.android_data_item, dataList) as BaseQuickAdapter<Int, BaseViewHolder>
-                //  recycleView?.adapter = adapter
-                return AndroidPrestentK()
-            }
+            "Android" -> return AndroidPrestentK()
             "iOS" -> return IosPrestentK()
+            "瞎推荐" -> return SuggestPretentk()
         }
         return null
     }
@@ -96,11 +97,18 @@ class GankListFrgment : BaseLazyFragment(), BaseGankView {
     private fun loadDataShouldDo(adapter: BaseQuickAdapter<Int, BaseViewHolder>): Unit {
         refresh?.isRefreshing = false
         adapter.setEnableLoadMore(true)
-        adapter.setOnLoadMoreListener({ Log.e("test","android load more")})
+        adapter.setOnLoadMoreListener({ Log.e("test", "android load more") })
         recycleView?.adapter = adapter
         recycleView?.adapter?.notifyDataSetChanged()
+
+
+
     }
 
-
+    override fun loadSuggestData(suggestBeanList: List<SuggestBean>) {
+        Log.e("test","休闲视频")
+        var suggestAdatper = SuggestDataAdatper(R.layout.suggest_data_item,suggestBeanList) as BaseQuickAdapter<Int,BaseViewHolder>
+        loadDataShouldDo(suggestAdatper)
+    }
 
 }

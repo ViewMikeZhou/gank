@@ -41,7 +41,6 @@ abstract class BaseLazyFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
-
         bIsViewCreated = false
         bIsDataLoaded = false
     }
@@ -70,8 +69,6 @@ abstract class BaseLazyFragment : Fragment() {
      * 不可见时调用
      */
     protected abstract fun userUnVisible()
-
-
 
 
 }

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.LinearLayoutCompat
+    android:layout_marginTop="10dp"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_video_desc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="描述"/>
+
+            <com.chad.library.adapter.base.media.IjkVideoView
+                android:id="@+id/ij_vv"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"/>
+
+    <TableLayout
+        android:id="@+id/hud_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center"
+        android:background="#77000000"
+        android:padding="8dp"/>
+
+    <TextView
+        android:id="@+id/tv_vedio_publish"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:text="发布时间"/>
+
+
+</android.support.v7.widget.LinearLayoutCompat>

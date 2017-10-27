@@ -2,6 +2,7 @@ package com.zhou.gank.retrofit
 
 import com.zhou.gank.gank.m.AndroidBeanResult
 import com.zhou.gank.gank.m.IosBeanResult
+import com.zhou.gank.gank.m.SuggestBeanResult
 import retrofit2.Call
 import retrofit2.http.GET
 
@@ -15,4 +16,6 @@ interface Api {
     @get:GET("api/data/iOS/10/1")
     val iosData : Call<IosBeanResult>
 
+    @get:GET("api/data/休息视频/10/1")
+    val suggestData : Call<SuggestBeanResult>
 }
