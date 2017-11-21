@@ -1,0 +1,31 @@
+apply plugin: 'java-library'
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+}
+
+sourceCompatibility = "1.7"
+targetCompatibility = "1.7"
+
+
+task clearJar(type: Delete) {
+    delete 'build/libs/test2lib.jar'
+    delete 'libs/test2lib.jar'
+}
+
+
+//打包任务
+task makeJar(type:org.gradle.api.tasks.bundling.Jar) {
+    //指定生成的jar名
+    baseName 'test2lib'
+    //从哪里打包class文件
+    from('build/classes/java/main/com/zhout/test2lib')
+    //打包到jar后的目录结构
+    into('com/zhou/testlib/')
+    //去掉不需要打包的目录和文件
+    exclude('BuildConfig.class', 'R.class')
+    //去掉R$开头的文件
+    exclude{ it.name.startsWith('R$');}
+}
+
+makeJar.dependsOn(clearJar, build)

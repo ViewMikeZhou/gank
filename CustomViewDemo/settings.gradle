@@ -1,0 +1,1 @@
+include ':app', ':nodePro-lib', ':test2lib'
