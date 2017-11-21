@@ -1,6 +1,5 @@
 package com.zhou.gank.retrofit
 
-import android.util.Log
 import com.chad.library.adapter.base.App.App
 import com.chad.library.adapter.base.App.util.NetworkUtil
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
@@ -27,13 +26,13 @@ class RetrofitHelp {
 
     companion object {
         val instance: RetrofitHelp by lazy { Holder.INSTANCE }
+        //  val instance :RetrofitHelp by lazy { RetrofitHelp() }
     }
 
     private fun initRetrofit(): Retrofit {
 
-        Log.e("test","initRetrifint --------")
         val interceptor = HttpLoggingInterceptor()
-        var  cache = Cache(File(App.getInstance()?.cacheDir,"httpcache"),1024*1024*3)
+        var cache = Cache(File(App.getInstance()?.cacheDir, "httpcache"), 1024 * 1024 * 3)
         if (BuildConfig.DEBUG)
             interceptor.setLevel(HttpLoggingInterceptor.Level.BODY)
         else

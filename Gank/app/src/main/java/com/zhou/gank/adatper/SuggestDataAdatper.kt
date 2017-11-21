@@ -16,9 +16,10 @@ class SuggestDataAdatper(layoutResId: Int, data: List<SuggestBean>?) : BaseQuick
     var index: Int = 0
     override fun convert(helper: BaseViewHolder?, item: SuggestBean?) {
         var view = helper?.getView<IjkVideoView>(R.id.ij_vv)
+
         view?.setHudView(helper?.getView<TableLayout>(R.id.hud_view))   // 要在设置path之前否则会空指针!!
         view?.setMediaController(AndroidMediaController(mContext, false))
-        view?.setVideoPath("http://192.168.10.126:9032/test.mp4")
+        view?.setVideoPath("rtmp://live.hkstv.hk.lxdns.com/live/hks")
 
         if (index == 0) {
             view?.start()
@@ -26,5 +27,7 @@ class SuggestDataAdatper(layoutResId: Int, data: List<SuggestBean>?) : BaseQuick
         index++
         helper?.getView<TextView>(R.id.tv_vedio_publish)?.setText(item?.publishedAt)
         helper?.getView<TextView>(R.id.tv_video_desc)?.setText(item?.desc)
+
+
     }
 }

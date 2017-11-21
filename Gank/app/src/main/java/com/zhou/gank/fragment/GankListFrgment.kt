@@ -39,19 +39,22 @@ class GankListFrgment : BaseLazyFragment(), BaseGankView {
             var f = GankListFrgment()
             f.arguments = bundle
             return f
+
         }
     }
-
 
     override val layoutResId get() = R.layout.fragment_gank_list
 
     override fun initView(view: View?) {
-        refresh = view?.find<SwipeRefreshLayout>(R.id.swip_refresh)
-        recycleView = view?.find<RecyclerView>(R.id.gank_list_recycle_view)
+
+        refresh = view?.find(R.id.swip_refresh)
+        recycleView = view?.find(R.id.gank_list_recycle_view)
         recycleView?.layoutManager = LinearLayoutManager(context)
         refresh?.setOnRefreshListener {
             basePresent?.loadData()
         }
+        refresh?.isRefreshing = true;
+        refresh?.progressViewEndOffset
     }
 
     override fun loadData() {
@@ -101,14 +104,16 @@ class GankListFrgment : BaseLazyFragment(), BaseGankView {
         recycleView?.adapter = adapter
         recycleView?.adapter?.notifyDataSetChanged()
 
-
-
     }
 
+    /**
+     * 视频数据
+     */
     override fun loadSuggestData(suggestBeanList: List<SuggestBean>) {
         Log.e("test","休闲视频")
         var suggestAdatper = SuggestDataAdatper(R.layout.suggest_data_item,suggestBeanList) as BaseQuickAdapter<Int,BaseViewHolder>
         loadDataShouldDo(suggestAdatper)
+
     }
 
 }

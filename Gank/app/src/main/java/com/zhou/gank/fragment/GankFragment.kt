@@ -16,6 +16,10 @@ import org.jetbrains.anko.find
  */
 class GankFragment : BaseFrament() {
 
+
+
+    val titlLists :ArrayList<String> by lazy { arrayListOf("test1","test2","test3")}    //懒加载
+
     override val layoutResId: Int get() = R.layout.fragment_gank
 
     override fun initView(view: View?) {
@@ -33,7 +37,10 @@ class GankFragment : BaseFrament() {
         }
 
         gank_vp?.adapter = GankVpAdatper(childFragmentManager, fragmentList, titleList)
+        gank_vp?.offscreenPageLimit = 5
         gank_tab?.setupWithViewPager(gank_vp)
+
+
     }
 
 
