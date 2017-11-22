@@ -1,12 +1,11 @@
 package com.chad.library.adapter.base.App.base;
 
+import android.content.Context;
 import android.view.ViewGroup;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.RelativeLayout;
-
-import com.chad.library.adapter.base.App.App;
 
 
 /**
@@ -18,9 +17,9 @@ public abstract class BaseWebFragment extends BaseFragment {
     protected RelativeLayout mLlWebContainer;
 
 
-    public void showWeb() {
+    public void showWeb(Context context) {
         ViewGroup.LayoutParams layoutParams = mLlWebContainer.getLayoutParams();
-        mWebView = new WebView(App.getInstance());
+        mWebView = new WebView(context);
         mWebView.setLayoutParams(layoutParams);
         initWebViewSetting();
 

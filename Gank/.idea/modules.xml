@@ -5,6 +5,8 @@
       <module fileurl="file://$PROJECT_DIR$/Gank.iml" filepath="$PROJECT_DIR$/Gank.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/library/library.iml" filepath="$PROJECT_DIR$/library/library.iml" />
+      <module fileurl="file://$PROJECT_DIR$/skinlib/skinlib.iml" filepath="$PROJECT_DIR$/skinlib/skinlib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/skinone/skinone.iml" filepath="$PROJECT_DIR$/skinone/skinone.iml" />
     </modules>
   </component>
 </project>

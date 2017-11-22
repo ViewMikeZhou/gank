@@ -6,10 +6,10 @@
 
              android:icon="@mipmap/ic_launcher"
              android:id="@+id/tool1"
-              android:title="tool1"
+              android:title="默认皮肤"
             />
         <item android:id="@+id/tool2"
-              android:title="tool2"
+              android:title="皮肤一"
             />
         <item android:id="@+id/tool3"
               android:title="tool3"

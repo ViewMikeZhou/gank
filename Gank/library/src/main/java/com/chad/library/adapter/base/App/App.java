@@ -12,6 +12,7 @@ import com.squareup.leakcanary.LeakCanary;
 
 public class App extends Application{
     private static Context instance;
+    private  static Application app;
 
     @Override
     public void onCreate() {
@@ -23,9 +24,12 @@ public class App extends Application{
       //  DaoUtils.init(this);
         LeakCanary.install(this);
         Stetho.initializeWithDefaults(this);
+        //添加皮肤更换库
+
     }
 
     public static Context getInstance() {
         return instance;
     }
+
 }

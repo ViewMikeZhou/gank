@@ -2,6 +2,7 @@ package com.zhou.gank
 
 import android.os.Build
 import android.os.Bundle
+import android.os.Environment
 import android.support.annotation.RequiresApi
 import android.support.v4.app.Fragment
 import android.support.v7.app.ActionBarDrawerToggle
@@ -9,9 +10,13 @@ import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import com.meiyou.skinlib.AndroidSkin
+import com.meiyou.skinlib.SkinListener
+import com.meiyou.skinlib.loader.SkinLoader
 import com.zhou.gank.fragment.GankFragment
 import com.zhou.gank.fragment.SettingFragment
 import kotlinx.android.synthetic.main.activity_main.*
+import java.io.File
 
 /**
  * Created by zhou on 2017/10/25.
@@ -19,11 +24,17 @@ import kotlinx.android.synthetic.main.activity_main.*
 class MainActivity : AppCompatActivity() {
     var nav_postion: Int = 0
     var fragmentList = arrayListOf<Fragment>(GankFragment(), SettingFragment())
+
+    var apkFile :String = File(Environment.getExternalStorageDirectory(),"/skin/skinone.apk").absolutePath
     @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        //初始化皮肤库
+
         setContentView(R.layout.activity_main)
         initToolbar()
+
+        //加载皮肤库
 
     }
 
@@ -81,11 +92,43 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
 
         when (item?.itemId) {
-            R.id.tool1 -> Log.e("test", "tool1 click")
-            R.id.tool2 -> Log.e("test", "tool2 click")
+            R.id.tool1 -> changeSkin(0)
+            R.id.tool2 ->changeSkin(1)
             R.id.tool3 -> Log.e("test", "tool3 click")
         }
 
         return super.onOptionsItemSelected(item)
+    }
+
+    private fun changeSkin(i: Int) {
+        if (i == 0){
+            AndroidSkin.getInstance().clearSkinAndApply()
+         /*   var intent = intent
+            finish()
+            startActivity(intent)*/
+           // startActivity(Intent(this@MainActivity,SkinTranActivity::class.java))
+
+        }else{
+            AndroidSkin.getInstance().saveSkinAndApply(apkFile, SkinLoader.SDCARD,object : SkinListener{
+                override fun onSuccess() {
+                    Log.e("test","onSuccess")
+                   /* var intent = intent
+                    finish()
+                    startActivity(intent)*/
+                 //   startActivity(Intent(this@MainActivity,SkinTranActivity::class.java))
+                   // AndroidSkin.getInstance().androidSkinManager.loadSkinIfApply()
+                }
+
+                override fun onFail(message: String?) {
+                    Log.e("test","onFail --> $message")
+                }
+
+                override fun onStart() {
+                    Log.e("test","onstart")
+                }
+
+            })
+        }
+
     }
 }

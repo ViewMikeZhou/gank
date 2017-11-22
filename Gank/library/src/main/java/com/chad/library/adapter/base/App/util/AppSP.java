@@ -3,14 +3,10 @@ package com.chad.library.adapter.base.App.util;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.util.Base64;
 import android.widget.ImageView;
 
-import com.chad.library.adapter.base.App.App;
-
-import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -29,10 +25,10 @@ public class AppSP {
     /**
      * 保存数据的方法，我们需要拿到保存数据的具体类型，然后根据类型调用不同的保存方法
      */
-    public static void put(String key, Object object)
+    public static void put(String key, Object object,Context context)
     {
 
-        SharedPreferences sp = App.getInstance().getSharedPreferences(FILE_NAME,
+        SharedPreferences sp = context.getSharedPreferences(FILE_NAME,
                 Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sp.edit();
 
@@ -62,9 +58,9 @@ public class AppSP {
     /**
      * 得到保存数据的方法，我们根据默认值得到保存的数据的具体类型，然后调用相对于的方法获取值
      */
-    public static Object get( String key, Object defaultObject)
+    public static Object get( String key, Object defaultObject,Context context)
     {
-        SharedPreferences sp = App.getInstance().getSharedPreferences(FILE_NAME,
+        SharedPreferences sp = context.getSharedPreferences(FILE_NAME,
                 Context.MODE_PRIVATE);
 
         if (defaultObject instanceof String)
@@ -90,9 +86,9 @@ public class AppSP {
     /**
      * 移除某个key值已经对应的值
      */
-    public static void remove( String key)
+    public static void remove( String key,Context context)
     {
-        SharedPreferences sp = App.getInstance().getSharedPreferences(FILE_NAME,
+        SharedPreferences sp = context.getSharedPreferences(FILE_NAME,
                 Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sp.edit();
         editor.remove(key);
@@ -102,9 +98,9 @@ public class AppSP {
     /**
      * 清除所有数据
      */
-    public static void clear()
+    public static void clear(Context context)
     {
-        SharedPreferences sp = App.getInstance().getSharedPreferences(FILE_NAME,
+        SharedPreferences sp = context.getSharedPreferences(FILE_NAME,
                 Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sp.edit();
         editor.clear();
@@ -114,9 +110,9 @@ public class AppSP {
     /**
      * 查询某个key是否已经存在
      */
-    public static boolean contains( String key)
+    public static boolean contains( String key,Context context)
     {
-        SharedPreferences sp = App.getInstance().getSharedPreferences(FILE_NAME,
+        SharedPreferences sp = context.getSharedPreferences(FILE_NAME,
                 Context.MODE_PRIVATE);
         return sp.contains(key);
     }
@@ -124,9 +120,9 @@ public class AppSP {
     /**
      * 返回所有的键值对
      */
-    public static Map<String, ?> getAll()
+    public static Map<String, ?> getAll(Context context)
     {
-        SharedPreferences sp = App.getInstance().getSharedPreferences(FILE_NAME,
+        SharedPreferences sp = context.getSharedPreferences(FILE_NAME,
                 Context.MODE_PRIVATE);
         return sp.getAll();
     }
@@ -137,7 +133,7 @@ public class AppSP {
      * @param
      * @param imageView
      */
-    public static void putImage( String key, ImageView imageView) {
+    public static void putImage( String key, ImageView imageView,Context context) {
         BitmapDrawable drawable = (BitmapDrawable) imageView.getDrawable();
         Bitmap bitmap = drawable.getBitmap();
         // 将Bitmap压缩成字节数组输出流
@@ -147,7 +143,7 @@ public class AppSP {
         byte[] byteArray = byStream.toByteArray();
         String imgString = new String(Base64.encodeToString(byteArray, Base64.DEFAULT));
         // 将String保存shareUtils
-        AppSP.put(key, imgString);
+        AppSP.put(key, imgString,context);
     }
 
     /**
@@ -155,7 +151,7 @@ public class AppSP {
      * @param mContext
      * @param imageView
      */
-    public static Bitmap getImage(Context mContext, String key, ImageView imageView) {
+   /* public static Bitmap getImage(Context mContext, String key, ImageView imageView) {
         String imgString = (String) AppSP.get( key, "");
         if (!imgString.equals("")) {
             // 利用Base64将我们string转换
@@ -165,7 +161,7 @@ public class AppSP {
             return BitmapFactory.decodeStream(byStream);
         }
         return null;
-    }
+    }*/
 
     /**
      * 创建一个解决SharedPreferencesCompat.apply方法的一个兼容类
