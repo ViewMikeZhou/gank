@@ -79,7 +79,6 @@ class MainActivity : AppCompatActivity() {
         drawerLayout.closeDrawers()
         return true
 
-
     }
 
 
