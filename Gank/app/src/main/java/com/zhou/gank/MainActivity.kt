@@ -25,11 +25,11 @@ class MainActivity : AppCompatActivity() {
     var nav_postion: Int = 0
     var fragmentList = arrayListOf<Fragment>(GankFragment(), SettingFragment())
 
-    var apkFile :String = File(Environment.getExternalStorageDirectory(),"/skin/skinone.apk").absolutePath
+    var apkFile: String = File(Environment.getExternalStorageDirectory(), "/skin/skinone.apk").absolutePath
     @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //初始化皮肤库
+
 
         setContentView(R.layout.activity_main)
         initToolbar()
@@ -93,7 +93,7 @@ class MainActivity : AppCompatActivity() {
 
         when (item?.itemId) {
             R.id.tool1 -> changeSkin(0)
-            R.id.tool2 ->changeSkin(1)
+            R.id.tool2 -> changeSkin(1)
             R.id.tool3 -> Log.e("test", "tool3 click")
         }
 
@@ -101,34 +101,26 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun changeSkin(i: Int) {
-        if (i == 0){
+        if (i == 0) {
             AndroidSkin.getInstance().clearSkinAndApply()
-         /*   var intent = intent
-            finish()
-            startActivity(intent)*/
-           // startActivity(Intent(this@MainActivity,SkinTranActivity::class.java))
-
-        }else{
-            AndroidSkin.getInstance().saveSkinAndApply(apkFile, SkinLoader.SDCARD,object : SkinListener{
+        } else {
+            AndroidSkin.getInstance().saveSkinAndApply(apkFile, SkinLoader.SDCARD, object : SkinListener {
                 override fun onSuccess() {
-                    Log.e("test","onSuccess")
-                   /* var intent = intent
-                    finish()
-                    startActivity(intent)*/
-                 //   startActivity(Intent(this@MainActivity,SkinTranActivity::class.java))
-                   // AndroidSkin.getInstance().androidSkinManager.loadSkinIfApply()
+                    Log.e("test", "onSuccess")
+
                 }
 
                 override fun onFail(message: String?) {
-                    Log.e("test","onFail --> $message")
+                    Log.e("test", "onFail --> $message")
                 }
 
                 override fun onStart() {
-                    Log.e("test","onstart")
+                    Log.e("test", "onstart")
                 }
 
             })
         }
+
 
     }
 }

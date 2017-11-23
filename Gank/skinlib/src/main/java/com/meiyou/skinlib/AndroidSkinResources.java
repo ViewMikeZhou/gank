@@ -1,14 +1,15 @@
 package com.meiyou.skinlib;
 
-import java.lang.reflect.Field;
-import java.util.HashMap;
-import java.util.Map;
-
 import android.content.Context;
 import android.content.res.AssetManager;
 import android.content.res.Resources;
+import android.util.Log;
 
 import com.meiyou.skinlib.util.LogUtils;
+
+import java.lang.reflect.Field;
+import java.util.HashMap;
+import java.util.Map;
 
 import dalvik.system.DexClassLoader;
 
@@ -65,8 +66,11 @@ public class AndroidSkinResources extends Resources {
         int newId = 0;
         if (classLoader != null) {
             try {
+                //获取R文件名
                 String clazzName = skinPackageName + ".R$" + typeName;
+                Log.e("test","clazzName :" + clazzName) ;
                 String key = clazzName + "." + entryName;
+                Log.e("test","key :" + key) ;
                 if (mResourceMap.get(key) != null) {
                     return mResourceMap.get(key);
                 }
@@ -83,6 +87,7 @@ public class AndroidSkinResources extends Resources {
                     mFieldMap.put(entryName, field);
                 }
                 newId = field.getInt(null);
+
                 mResourceMap.put(key, newId);
             } catch (Exception e) {
                 // nothing

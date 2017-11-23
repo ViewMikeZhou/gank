@@ -29,6 +29,7 @@ public class AndroidSkinHook {
         application.registerActivityLifecycleCallbacks(new Application.ActivityLifecycleCallbacks() {
             @Override
             public void onActivityCreated(Activity activity, Bundle bundle) {
+                //设置factory2
                 hookLayoutInflater(activity);
             }
 

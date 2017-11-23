@@ -151,6 +151,7 @@ public class AndroidSkinManager {
                     }
                     //getResource
                     mAndroidSkinResources = new AndroidSkinResources(mContext, mAssetManager, skinPackage);
+                    //
                     mAndroidSkinResources.setClassLoader(getSkinApkDexClassLoader());
 
                     //apply

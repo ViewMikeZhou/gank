@@ -1,16 +1,5 @@
 package com.meiyou.skinlib;
 
-import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Set;
-import java.util.WeakHashMap;
-
 import android.app.Activity;
 import android.content.Context;
 import android.support.annotation.Nullable;
@@ -24,6 +13,17 @@ import com.meiyou.skinlib.attr.MutableAttr;
 import com.meiyou.skinlib.attr.MutableAttrFactory;
 import com.meiyou.skinlib.util.LogUtils;
 import com.meiyou.skinlib.util.ReflectUtil;
+
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
+import java.util.WeakHashMap;
 
 /**
  * Author: meetyou
@@ -71,6 +71,7 @@ public class AndroidSkinFactory implements LayoutInflater.Factory2, RuntimeGenVi
     @Override
     public View onCreateView(View parent, String name, Context context, AttributeSet attributeSet) {
         View view = createView(name, context, attributeSet);
+        //保存属性
         List<MutableAttr> viewAttrs = saveAttrs(context, view, attributeSet);
         if (viewAttrs != null && !viewAttrs.isEmpty() && AndroidSkin.getInstance().isSkinApply()
             && !isInIgnoreSkinActivity(view)) {
