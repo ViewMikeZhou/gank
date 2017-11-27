@@ -19,6 +19,9 @@ public class TestAspectActivity extends AppCompatActivity {
         Log.e("TAG","改变后的结果:"+test);
         Log.e("TAG","oncreat---->2");
 
+
+
+
         TestJikPack.test();
 
     }

@@ -7,6 +7,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.zhou.customview.MainActivity">
+    <Button
+        android:id="@+id/bt"
+        android:text="点击"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
     <com.zhou.customview.CostomView1
         android:id="@+id/custom1"
         android:layout_marginLeft="10dp"

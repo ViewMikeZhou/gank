@@ -1,11 +1,13 @@
 package com.zhou.customview
 
 import android.animation.ObjectAnimator
+import android.graphics.Camera
 import android.os.Bundle
 import android.os.Handler
 import android.os.Message
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
+import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.find
 import java.lang.ref.WeakReference
 
@@ -43,7 +45,9 @@ class MainActivity : AppCompatActivity() {
 
         Log.e("test","c --> $c")
 
-
+       var p = bt.layoutParams
+        var ofInt = ObjectAnimator.ofInt(bt?.width!!, 1000)
+        Camera
 
         /*   var custom1 = findViewById(R.id.custom1) as CostomView1
            var handler = MyHandler(this);

@@ -11,6 +11,7 @@ import android.util.AttributeSet
 import android.util.Log
 import android.view.MotionEvent
 import android.view.View
+import android.view.ViewAnimationUtils
 
 /**抛物线自定义view 第一篇
  * Created by zhou on 2017/11/8.
@@ -47,6 +48,7 @@ class CostomView1 : View {
 
     }
 
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onTouchEvent(event: MotionEvent): Boolean {
         when (event.action) {
             MotionEvent.ACTION_DOWN -> {
@@ -56,11 +58,18 @@ class CostomView1 : View {
                 val rawY = event.rawY
                 Log.e("test", "x ->$x,y ->$y,Rawx ->$rawX,rawY ->$rawY")
                 mPaint.color = Color.YELLOW
+
+                var animator = ViewAnimationUtils.createCircularReveal(this, x.toInt(), y.toInt(), 100f, 40f)
+
+                animator.duration = 1000
+                animator.start()
                 invalidate()
             }
             MotionEvent.ACTION_MOVE -> {
+
             }
             MotionEvent.ACTION_UP -> {
+
             }
         }
         return super.onTouchEvent(event)
