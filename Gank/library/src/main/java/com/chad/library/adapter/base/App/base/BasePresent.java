@@ -28,4 +28,6 @@ public abstract class BasePresent<V> {
 
     public abstract void loadData();
 
+    public  abstract  void loadMore();
+
 }

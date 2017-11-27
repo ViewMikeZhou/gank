@@ -55,7 +55,7 @@ class GankListFrgment : BaseLazyFragment(), BaseGankView {
         refresh?.setOnRefreshListener {
             basePresent?.loadData()
         }
-        refresh?.isRefreshing = true;
+        refresh?.isRefreshing = true
         refresh?.progressViewEndOffset
     }
 
@@ -81,6 +81,7 @@ class GankListFrgment : BaseLazyFragment(), BaseGankView {
 
     override fun showProgress() {
         refresh?.isRefreshing = true
+
     }
 
     /**
@@ -102,7 +103,7 @@ class GankListFrgment : BaseLazyFragment(), BaseGankView {
     private fun loadDataShouldDo(adapter: BaseQuickAdapter<Int, BaseViewHolder>): Unit {
         refresh?.isRefreshing = false
         adapter.setEnableLoadMore(true)
-        adapter.setOnLoadMoreListener({ Log.e("test", "android load more") })
+        adapter.setOnLoadMoreListener({ basePresent?.loadMore() })
         recycleView?.adapter = adapter
         recycleView?.adapter?.notifyDataSetChanged()
 

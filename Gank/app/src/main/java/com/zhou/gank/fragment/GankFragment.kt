@@ -24,6 +24,8 @@ class GankFragment : BaseFrament() {
 
     override fun initView(view: View?) {
 
+
+
         var gank_vp = view?.find<ViewPager>(R.id.gank_vp)
         var gank_tab = view?.find<TabLayout>(R.id.gank_tab)
 

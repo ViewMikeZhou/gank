@@ -14,6 +14,9 @@ import retrofit2.Response
  * Created by zhou on 2017/10/26.
  */
 class AndroidPrestentK : BasePresent<BaseGankView>() {
+    override fun loadMore() {
+        Log.e("test", "android --> loadMore")
+    }
 
     override fun loadData() {
 
@@ -28,5 +31,7 @@ class AndroidPrestentK : BasePresent<BaseGankView>() {
             }
         })
     }
+
+
 
 }

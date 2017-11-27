@@ -14,6 +14,9 @@ import retrofit2.Response
  * Created by zhou on 2017/10/27.
  */
 class  SuggestPretentk : BasePresent<BaseGankView>() {
+    override fun loadMore() {
+        Log.e("test", "SuggestPretentk -- loadMore")
+    }
 
     override fun loadData() {
         IBseView.get()?.showProgress()

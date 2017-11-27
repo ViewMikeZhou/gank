@@ -29,11 +29,8 @@ class MainActivity : AppCompatActivity() {
     @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-
         setContentView(R.layout.activity_main)
         initToolbar()
-
         //加载皮肤库
 
     }
@@ -103,23 +100,24 @@ class MainActivity : AppCompatActivity() {
         if (i == 0) {
             AndroidSkin.getInstance().clearSkinAndApply()
         } else {
-            AndroidSkin.getInstance().saveSkinAndApply(apkFile, SkinLoader.SDCARD, object : SkinListener {
-                override fun onSuccess() {
-                    Log.e("test", "onSuccess")
+            if (!AndroidSkin.getInstance().isSkinApply){
+                AndroidSkin.getInstance().saveSkinAndApply(apkFile, SkinLoader.SDCARD, object : SkinListener {
+                    override fun onSuccess() {
 
-                }
+                    }
 
-                override fun onFail(message: String?) {
-                    Log.e("test", "onFail --> $message")
-                }
+                    override fun onFail(message: String?) {
+                        Log.e("test", "onFail --> $message")
+                    }
 
-                override fun onStart() {
-                    Log.e("test", "onstart")
-                }
+                    override fun onStart() {
 
-            })
+                    }
+
+                })
+            }
+
         }
-
 
     }
 }

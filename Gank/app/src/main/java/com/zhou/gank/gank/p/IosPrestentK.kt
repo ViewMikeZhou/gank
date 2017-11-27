@@ -14,6 +14,10 @@ import retrofit2.Response
  * Created by zhou on 2017/10/26.
  */
 class IosPrestentK : BasePresent<BaseGankView>() {
+    override fun loadMore() {
+        Log.e("test","IosPrestentK --- loadMore")
+    }
+
     override fun loadData() {
         Log.e("test","ios ->response ->")
         IBseView.get()?.showProgress()

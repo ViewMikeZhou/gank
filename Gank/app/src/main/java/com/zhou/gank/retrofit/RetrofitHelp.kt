@@ -34,9 +34,9 @@ class RetrofitHelp {
         val interceptor = HttpLoggingInterceptor()
         var cache = Cache(File(App.getInstance()?.cacheDir, "httpcache"), 1024 * 1024 * 3)
         if (BuildConfig.DEBUG)
-            interceptor.setLevel(HttpLoggingInterceptor.Level.BODY)
+            interceptor.level = HttpLoggingInterceptor.Level.BODY
         else
-            interceptor.setLevel(HttpLoggingInterceptor.Level.NONE)
+            interceptor.level = HttpLoggingInterceptor.Level.NONE
 
         val client = OkHttpClient.Builder()
                 .addInterceptor(interceptor)
