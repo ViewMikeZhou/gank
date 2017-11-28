@@ -113,8 +113,8 @@ class GankListFrgment : BaseLazyFragment(), BaseGankView {
      * 视频数据
      */
     override fun loadSuggestData(suggestBeanList: List<SuggestBean>) {
-        Log.e("test","休闲视频")
-        var suggestAdatper = SuggestDataAdatper(R.layout.suggest_data_item,suggestBeanList) as BaseQuickAdapter<Int,BaseViewHolder>
+        Log.e("test", "休闲视频")
+        var suggestAdatper = SuggestDataAdatper(R.layout.suggest_data_item, suggestBeanList) as BaseQuickAdapter<Int, BaseViewHolder>
         loadDataShouldDo(suggestAdatper)
 
     }

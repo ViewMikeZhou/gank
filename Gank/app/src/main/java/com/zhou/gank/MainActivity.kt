@@ -10,7 +10,6 @@ import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
-import com.chad.library.adapter.base.App.util.NetworkUtil
 import com.meiyou.skinlib.AndroidSkin
 import com.meiyou.skinlib.SkinListener
 import com.meiyou.skinlib.loader.SkinLoader
@@ -32,8 +31,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         initToolbar()
-
-         NetworkUtil.openNetSetting(this)
 
     }
 
