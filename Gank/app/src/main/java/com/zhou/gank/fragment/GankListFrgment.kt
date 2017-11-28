@@ -6,10 +6,10 @@ import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.util.Log
 import android.view.View
-import com.chad.library.adapter.base.App.App
 import com.chad.library.adapter.base.App.base.BasePresent
 import com.chad.library.adapter.base.baseAdapter.BaseQuickAdapter
 import com.chad.library.adapter.base.baseAdapter.BaseViewHolder
+import com.zhou.gank.AppMe
 import com.zhou.gank.R
 import com.zhou.gank.adatper.AndroidDataAdapter
 import com.zhou.gank.adatper.IosDataAdapter
@@ -51,7 +51,7 @@ class GankListFrgment : BaseLazyFragment(), BaseGankView {
         refresh = view?.find(R.id.swip_refresh)
         recycleView = view?.find(R.id.gank_list_recycle_view)
         // 传入application context解决内存泄露
-        recycleView?.layoutManager = LinearLayoutManager(App.getInstance())
+        recycleView?.layoutManager = LinearLayoutManager(AppMe.instance)
         refresh?.setOnRefreshListener {
             basePresent?.loadData()
         }

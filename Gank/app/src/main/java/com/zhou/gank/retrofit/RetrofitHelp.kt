@@ -1,8 +1,8 @@
 package com.zhou.gank.retrofit
 
-import com.chad.library.adapter.base.App.App
 import com.chad.library.adapter.base.App.util.NetworkUtil
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
+import com.zhou.gank.AppMe
 import com.zhou.gank.BuildConfig
 import okhttp3.*
 import okhttp3.logging.HttpLoggingInterceptor
@@ -32,7 +32,7 @@ class RetrofitHelp {
     private fun initRetrofit(): Retrofit {
 
         val interceptor = HttpLoggingInterceptor()
-        var cache = Cache(File(App.getInstance()?.cacheDir, "httpcache"), 1024 * 1024 * 3)
+        var cache = Cache(File(AppMe.instance?.cacheDir, "httpcache"), 1024 * 1024 * 3)
         if (BuildConfig.DEBUG)
             interceptor.level = HttpLoggingInterceptor.Level.BODY
         else
@@ -60,13 +60,13 @@ class RetrofitHelp {
             cacheBuilder.maxStale(1, TimeUnit.DAYS)     //无网络缓存时间
             val cacheControl = cacheBuilder.build()
             var request = chain?.request()
-            if (!NetworkUtil.isNetworkConnected()) {
+            if (!NetworkUtil.isNetworkConnected(AppMe.instance)) {
                 request = request?.newBuilder()
                         ?.cacheControl(cacheControl)
                         ?.build()
             }
             val originalResponse = chain?.proceed(request)
-            if (NetworkUtil.isNetworkConnected()) {
+            if (NetworkUtil.isNetworkConnected(AppMe.instance)) {
                 val maxAge = 30 //有网缓存
                 return originalResponse?.newBuilder()
                         ?.removeHeader("Pragma")

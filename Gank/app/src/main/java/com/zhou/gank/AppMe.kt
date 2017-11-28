@@ -4,16 +4,35 @@ import android.app.Activity
 import android.app.Application
 import android.os.Bundle
 import android.util.Log
-import com.chad.library.adapter.base.App.App
+import com.facebook.stetho.Stetho
 import com.meiyou.skinlib.AndroidSkin
+import com.squareup.leakcanary.LeakCanary
 
 /**
  * Created by zhou on 2017/11/22.
  */
-class AppMe : App() {
+class AppMe : Application() {
+
+
+    companion object {
+       var instance: AppMe by notNullSingleValue()
+    }
+
     override fun onCreate() {
         super.onCreate()
-        AndroidSkin.getInstance().init(App.getInstance() as Application?)
+
+        if (LeakCanary.isInAnalyzerProcess(this)) {
+            return
+        }
+        instance = this ;
+        //  DaoUtils.init(this);
+        LeakCanary.install(this);
+        Stetho.initializeWithDefaults(this);
+        //添加皮肤更换库
+
+        AndroidSkin.getInstance().init(this as Application?)
+
+
         registerActivityLifecycleCallbacks(object:ActivityLifecycleCallbacks{
             override fun onActivityPaused(activity: Activity?) {
 
@@ -46,4 +65,7 @@ class AppMe : App() {
             }
         })
     }
+
+
+
 }

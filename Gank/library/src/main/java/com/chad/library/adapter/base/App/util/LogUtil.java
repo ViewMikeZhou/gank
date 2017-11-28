@@ -4,11 +4,8 @@ package com.chad.library.adapter.base.App.util;
  * Created by Administrator on 2017/6/2.
  */
 
-import android.os.Environment;
 import android.support.annotation.IntDef;
 import android.util.Log;
-
-import com.chad.library.adapter.base.App.App;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -100,13 +97,13 @@ public  class LogUtil {
 
     public static class Builder {
         public Builder() {
-            if (defaultDir != null) return;
+           /* if (defaultDir != null) return;
             if (Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState())
                     && App.getInstance().getExternalCacheDir() != null)
                 defaultDir = App.getInstance().getExternalCacheDir() + FILE_SEP + "log" + FILE_SEP;
             else {
                 defaultDir = App.getInstance().getCacheDir() + FILE_SEP + "log" + FILE_SEP;
-            }
+            }*/
         }
 
         public Builder setLogSwitch(boolean logSwitch) {

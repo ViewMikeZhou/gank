@@ -4,22 +4,20 @@ package com.chad.library.adapter.base.App.util;
 import android.content.Context;
 import android.view.WindowManager;
 
-import com.chad.library.adapter.base.App.App;
-
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class GlobalUtil {
 
     //dp装px
-    public static int dip2px(float dpValue) {
-        final float scale = App.getInstance().getResources().getDisplayMetrics().density;
+    public static int dip2px(float dpValue,Context context) {
+        final float scale = context.getResources().getDisplayMetrics().density;
         return (int) (dpValue * scale + 0.5f);
     }
 
     //px 转dp
-    public static int px2dp(float pxValue) {
-        final float scale = App.getInstance().getResources().getDisplayMetrics().density;
+    public static int px2dp(float pxValue,Context context) {
+        final float scale = context.getResources().getDisplayMetrics().density;
         return (int) (pxValue / scale + 0.5f);
     }
 
@@ -49,8 +47,8 @@ public class GlobalUtil {
         return hour+":"+minut;
     }
 
-    public static int getScreenWidth(){
-        WindowManager wm = (WindowManager) App.getInstance()
+    public static int getScreenWidth(Context context){
+        WindowManager wm = (WindowManager) context
                 .getSystemService(Context.WINDOW_SERVICE);
         int width = wm.getDefaultDisplay().getWidth();
         return width;
