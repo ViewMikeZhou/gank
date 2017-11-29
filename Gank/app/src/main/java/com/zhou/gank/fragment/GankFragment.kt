@@ -31,6 +31,12 @@ class GankFragment : BaseFrament() {
 
         var fragmentList = arrayListOf<Fragment>()
         var titleList = arrayListOf<String>("Android", "iOS", "瞎推荐", "扩展资源", "福利", "休息视频")
+
+
+
+
+
+
         titleList.forEach {
             var b = Bundle().apply {
                 putString(GANK_TYPE, it)

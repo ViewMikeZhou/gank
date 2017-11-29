@@ -87,7 +87,7 @@ public class RxDialogDeployNode extends RxDialog {
     public TextView getTvCancel() {
         return mTvCancel;
     }
-    
+
 
     public void setCancel(String strCancel) {
         this.mTvCancel.setText(strCancel);

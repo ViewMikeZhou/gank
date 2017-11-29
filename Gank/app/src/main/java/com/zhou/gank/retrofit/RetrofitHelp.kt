@@ -38,6 +38,9 @@ class RetrofitHelp {
         else
             interceptor.level = HttpLoggingInterceptor.Level.NONE
 
+        var builder = OkHttpClient.Builder()
+
+
         val client = OkHttpClient.Builder()
                 .addInterceptor(interceptor)
                 .cache(cache)
@@ -51,6 +54,8 @@ class RetrofitHelp {
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .build()
+
+
     }
 
     private class CacheIntercepter : Interceptor {
