@@ -12,7 +12,9 @@ import java.security.SecureRandom;
 import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
 
-import static com.xjf.repository.utils.ConvertUtils.*;
+import static com.zhou.gank.add_other1_utils.ConvertUtils.bytes2HexString;
+import static com.zhou.gank.add_other1_utils.ConvertUtils.hexString2Bytes;
+
 
 /**
  * <pre>

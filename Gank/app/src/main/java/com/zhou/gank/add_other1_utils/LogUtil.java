@@ -3,8 +3,6 @@ package com.zhou.gank.add_other1_utils;
 import android.os.Environment;
 import android.text.TextUtils;
 
-import com.orhanobut.logger.Logger;
-
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -50,7 +48,7 @@ public class LogUtil {
         }
         delFile();
 
-        Logger.init("xijiufu").methodCount(5);
+       // Logger.init("xijiufu").methodCount(5);
     }
 
 
@@ -149,19 +147,19 @@ public class LogUtil {
      */
     private static void log(String tag, String msg, char level) {
         if ('e' == level && ('e' == MYLOG_TYPE || 'v' == MYLOG_TYPE)) {
-            Logger.e(msg);
+      //      Logger.e(msg);
 //            Log.e(tag, msg);
         } else if ('w' == level && ('w' == MYLOG_TYPE || 'v' == MYLOG_TYPE)) {
-            Logger.w(msg);
+        //    Logger.w(msg);
 //            Log.w(tag, msg);
         } else if ('d' == level && ('d' == MYLOG_TYPE || 'v' == MYLOG_TYPE)) {
-            Logger.d(msg);
+         //   Logger.d(msg);
 //            Log.d(tag, msg);
         } else if ('i' == level && ('d' == MYLOG_TYPE || 'v' == MYLOG_TYPE)) {
-            Logger.i(msg);
+         //   Logger.i(msg);
 //            Log.i(tag, msg);
         } else {
-            Logger.v(msg);
+         //   Logger.v(msg);
 //            Log.v(tag, msg);
         }
 

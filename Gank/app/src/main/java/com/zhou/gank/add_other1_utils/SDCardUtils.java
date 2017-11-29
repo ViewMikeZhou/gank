@@ -5,7 +5,6 @@ import android.os.StatFs;
 
 import java.io.File;
 
-import static com.xjf.repository.utils.ConstUtils.*;
 
 /**
  * <pre>
@@ -61,7 +60,7 @@ public class SDCardUtils {
      *             </ul>
      * @return 返回-1，说明SD卡不可用，否则返回SD卡剩余空间
      */
-    public static double getFreeSpace(MemoryUnit unit) {
+    public static double getFreeSpace(ConstUtils.MemoryUnit unit) {
         if (isSDCardEnable()) {
             try {
                 StatFs stat = new StatFs(getSDCardPath());

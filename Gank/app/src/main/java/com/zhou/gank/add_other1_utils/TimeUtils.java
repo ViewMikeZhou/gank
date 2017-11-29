@@ -7,7 +7,12 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-import static com.xjf.repository.utils.ConstUtils.*;
+
+import static com.zhou.gank.add_other1_utils.ConstUtils.DAY;
+import static com.zhou.gank.add_other1_utils.ConstUtils.HOUR;
+import static com.zhou.gank.add_other1_utils.ConstUtils.MIN;
+import static com.zhou.gank.add_other1_utils.ConstUtils.MSEC;
+import static com.zhou.gank.add_other1_utils.ConstUtils.SEC;
 
 
 /**
@@ -382,7 +387,7 @@ public class TimeUtils {
      *                     </ul>
      * @return unit时间戳
      */
-    private static long milliseconds2Unit(long milliseconds, TimeUnit unit) {
+    private static long milliseconds2Unit(long milliseconds, ConstUtils.TimeUnit unit) {
         switch (unit) {
             case MSEC:
                 return milliseconds / MSEC;
@@ -413,7 +418,7 @@ public class TimeUtils {
      *              </ul>
      * @return unit时间戳
      */
-    public static long getIntervalTime(String time0, String time1, TimeUnit unit) {
+    public static long getIntervalTime(String time0, String time1, ConstUtils.TimeUnit unit) {
         return getIntervalTime(time0, time1, unit, DEFAULT_SDF);
     }
 
@@ -433,7 +438,7 @@ public class TimeUtils {
      * @param format 时间格式
      * @return unit时间戳
      */
-    public static long getIntervalTime(String time0, String time1, TimeUnit unit, SimpleDateFormat format) {
+    public static long getIntervalTime(String time0, String time1, ConstUtils.TimeUnit unit, SimpleDateFormat format) {
         return Math.abs(milliseconds2Unit(string2Milliseconds(time0, format)
                 - string2Milliseconds(time1, format), unit));
     }
@@ -453,7 +458,7 @@ public class TimeUtils {
      *              </ul>
      * @return unit时间戳
      */
-    public static long getIntervalTime(Date time0, Date time1, TimeUnit unit) {
+    public static long getIntervalTime(Date time0, Date time1, ConstUtils.TimeUnit unit) {
         return Math.abs(milliseconds2Unit(date2Milliseconds(time1)
                 - date2Milliseconds(time0), unit));
     }
@@ -512,7 +517,7 @@ public class TimeUtils {
      *             </ul>
      * @return unit时间戳
      */
-    public static long getIntervalByNow(String time, TimeUnit unit) {
+    public static long getIntervalByNow(String time, ConstUtils.TimeUnit unit) {
         return getIntervalByNow(time, unit, DEFAULT_SDF);
     }
 
@@ -531,7 +536,7 @@ public class TimeUtils {
      * @param format 时间格式
      * @return unit时间戳
      */
-    public static long getIntervalByNow(String time, TimeUnit unit, SimpleDateFormat format) {
+    public static long getIntervalByNow(String time, ConstUtils.TimeUnit unit, SimpleDateFormat format) {
         return getIntervalTime(getCurTimeString(), time, unit, format);
     }
 
@@ -549,7 +554,7 @@ public class TimeUtils {
      *             </ul>
      * @return unit时间戳
      */
-    public static long getIntervalByNow(Date time, TimeUnit unit) {
+    public static long getIntervalByNow(Date time, ConstUtils.TimeUnit unit) {
         return getIntervalTime(getCurTimeDate(), time, unit);
     }
 

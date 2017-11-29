@@ -8,17 +8,12 @@ import android.os.Build;
 import android.text.Editable;
 import android.text.Selection;
 import android.text.Spannable;
-import android.view.ViewTreeObserver;
-import android.widget.EditText;
-
-import java.lang.reflect.Field;
-import java.util.ArrayList;
-import java.util.List;
-
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
 import android.widget.AbsListView;
+import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.LinearLayout;
 import android.widget.ListAdapter;
@@ -27,7 +22,10 @@ import android.widget.RelativeLayout;
 import android.widget.RelativeLayout.LayoutParams;
 import android.widget.TextView;
 
-import com.xjf.repository.R;
+import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.List;
+
 
 /**
  * 视图工具箱
@@ -56,7 +54,7 @@ public class ViewUtils {
             for (EditText editText : editTexts) {
                 editText.setFocusable(true);
                 editText.setFocusableInTouchMode(true);
-                editText.setBackgroundDrawable(editText.getResources().getDrawable(R.drawable.drawable_input_text_bg));
+          //     editText.setBackgroundDrawable(editText.getResources().getDrawable(R.drawable.drawable_input_text_bg));
             }
             return;
         }

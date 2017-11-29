@@ -19,8 +19,10 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import static com.xjf.repository.utils.ConstUtils.*;
-import static com.xjf.repository.utils.ConstUtils.KB;
+import static com.zhou.gank.add_other1_utils.ConstUtils.BYTE;
+import static com.zhou.gank.add_other1_utils.ConstUtils.GB;
+import static com.zhou.gank.add_other1_utils.ConstUtils.KB;
+import static com.zhou.gank.add_other1_utils.ConstUtils.MB;
 
 /**
  * <pre>
@@ -915,14 +917,14 @@ public class FileUtils {
      *
      * @param byteNum 大小
      * @param unit <ul>
-     *             <li>{@link MemoryUnit#BYTE}: 字节</li>
-     *             <li>{@link MemoryUnit#KB}  : 千字节</li>
-     *             <li>{@link MemoryUnit#MB}  : 兆</li>
-     *             <li>{@link MemoryUnit#GB}  : GB</li>
+     *             <li>{@link #}: 字节</li>
+     *             <li>{@link #}  : 千字节</li>
+     *             <li>{@link #}  : 兆</li>
+     *             <li>{@link #}  : GB</li>
      *             </ul>
      * @return 以unit为单位的size
      */
-    public static double byte2Size(long byteNum, MemoryUnit unit) {
+    public static double byte2Size(long byteNum, ConstUtils.MemoryUnit unit) {
         switch (unit) {
             default:
             case BYTE:
@@ -941,14 +943,14 @@ public class FileUtils {
      *
      * @param size 大小
      * @param unit <ul>
-     *             <li>{@link MemoryUnit#BYTE}: 字节</li>
-     *             <li>{@link MemoryUnit#KB}  : 千字节</li>
-     *             <li>{@link MemoryUnit#MB}  : 兆</li>
-     *             <li>{@link MemoryUnit#GB}  : GB</li>
+     *             <li>{@link #}: 字节</li>
+     *             <li>{@link #}  : 千字节</li>
+     *             <li>{@link #}  : 兆</li>
+     *             <li>{@link #}  : GB</li>
      *             </ul>
      * @return 字节数
      */
-    public static long size2Byte(long size, MemoryUnit unit) {
+    public static long size2Byte(long size, ConstUtils.MemoryUnit unit) {
         switch (unit) {
             default:
             case BYTE:
@@ -968,14 +970,14 @@ public class FileUtils {
      *
      * @param filePath 文件路径
      * @param unit     <ul>
-     *                 <li>{@link MemoryUnit#BYTE}: 字节</li>
-     *                 <li>{@link MemoryUnit#KB}  : 千字节</li>
-     *                 <li>{@link MemoryUnit#MB}  : 兆</li>
-     *                 <li>{@link MemoryUnit#GB}  : GB</li>
+     *                 <li>{@link #}: 字节</li>
+     *                 <li>{@link #}  : 千字节</li>
+     *                 <li>{@link #}  : 兆</li>
+     *                 <li>{@link #}  : GB</li>
      *                 </ul>
      * @return 文件大小以unit为单位
      */
-    public static double getFileSize(String filePath, MemoryUnit unit) {
+    public static double getFileSize(String filePath, ConstUtils.MemoryUnit unit) {
         return getFileSize(getFileByPath(filePath), unit);
     }
 
@@ -985,14 +987,14 @@ public class FileUtils {
      *
      * @param file 文件
      * @param unit <ul>
-     *             <li>{@link MemoryUnit#BYTE}: 字节</li>
-     *             <li>{@link MemoryUnit#KB}  : 千字节</li>
-     *             <li>{@link MemoryUnit#MB}  : 兆</li>
-     *             <li>{@link MemoryUnit#GB}  : GB</li>
+     *             <li>{@link #}: 字节</li>
+     *             <li>{@link #}  : 千字节</li>
+     *             <li>{@link #}  : 兆</li>
+     *             <li>{@link #}  : GB</li>
      *             </ul>
      * @return 文件大小以unit为单位
      */
-    public static double getFileSize(File file, MemoryUnit unit) {
+    public static double getFileSize(File file, ConstUtils.MemoryUnit unit) {
         if (!isFileExists(file)) return -1;
         return byte2Size(file.length(), unit);
     }

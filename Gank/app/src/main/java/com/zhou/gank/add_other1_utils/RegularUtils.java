@@ -2,7 +2,17 @@ package com.zhou.gank.add_other1_utils;
 
 import java.util.regex.Pattern;
 
-import static com.xjf.repository.utils.ConstUtils.*;
+import static com.zhou.gank.add_other1_utils.ConstUtils.REGEX_CHZ;
+import static com.zhou.gank.add_other1_utils.ConstUtils.REGEX_DATE;
+import static com.zhou.gank.add_other1_utils.ConstUtils.REGEX_EMAIL;
+import static com.zhou.gank.add_other1_utils.ConstUtils.REGEX_IDCARD15;
+import static com.zhou.gank.add_other1_utils.ConstUtils.REGEX_IDCARD18;
+import static com.zhou.gank.add_other1_utils.ConstUtils.REGEX_IP;
+import static com.zhou.gank.add_other1_utils.ConstUtils.REGEX_MOBILE_EXACT;
+import static com.zhou.gank.add_other1_utils.ConstUtils.REGEX_MOBILE_SIMPLE;
+import static com.zhou.gank.add_other1_utils.ConstUtils.REGEX_TEL;
+import static com.zhou.gank.add_other1_utils.ConstUtils.REGEX_URL;
+import static com.zhou.gank.add_other1_utils.ConstUtils.REGEX_USERNAME;
 
 /**
  * <pre>
