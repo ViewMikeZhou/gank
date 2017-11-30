@@ -34,9 +34,6 @@ class GankFragment : BaseFrament() {
 
 
 
-
-
-
         titleList.forEach {
             var b = Bundle().apply {
                 putString(GANK_TYPE, it)

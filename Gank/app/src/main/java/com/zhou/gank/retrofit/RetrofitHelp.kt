@@ -38,8 +38,6 @@ class RetrofitHelp {
         else
             interceptor.level = HttpLoggingInterceptor.Level.NONE
 
-        var builder = OkHttpClient.Builder()
-
 
         val client = OkHttpClient.Builder()
                 .addInterceptor(interceptor)
@@ -48,6 +46,7 @@ class RetrofitHelp {
                 .connectTimeout(DEFAULT_TIMEOUT, TimeUnit.SECONDS)
                 .readTimeout(DEFAULT_TIMEOUT, TimeUnit.SECONDS)
                 .build()
+
         return Retrofit.Builder()
                 .baseUrl(BASE_URL)
                 .client(client)

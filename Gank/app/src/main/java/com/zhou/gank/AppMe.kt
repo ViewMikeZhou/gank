@@ -16,6 +16,7 @@ class AppMe : Application() {
 
     companion object {
        var instance: AppMe by notNullSingleValue()
+
     }
 
     override fun onCreate() {
