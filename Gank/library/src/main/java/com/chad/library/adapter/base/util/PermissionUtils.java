@@ -12,6 +12,30 @@ import com.yanzhenjie.permission.RationaleListener;
 
 /**
  * Created by Administrator on 2017/3/17.
+ * 使用方法:
+ * Activity中
+ *       @PermissionYes(1)    // 权限申请成功回调
+        private void getMultiYes(@NonNull List<String> grantedPermissions) {
+            if (grantedPermissions.size() >= 4) {
+            isOk =true;
+            if (!App.getSpCache().get(GlobalUtil.HASE_PERMISSION,false)){
+            goRestart();
+            }
+            App.getSpCache().put(GlobalUtil.HASE_PERMISSION, true);
+        }
+
+
+         @PermissionNo(1)   // 权限申请失败回调
+         private void getMultiNo(@NonNull List<String> deniedPermissions) {
+             Toast.makeText(this, deniedPermissions.toString() + "申请失败", Toast.LENGTH_SHORT).show();
+             if (AndPermission.hasAlwaysDeniedPermission(this, deniedPermissions)) {
+             // 第一种：用默认的提示语。
+             AndPermission.defaultSettingDialog(this, 1).show();
+         }
+
+}
+ *
+ *
  */
 
 public class PermissionUtils {
@@ -47,7 +71,7 @@ public class PermissionUtils {
                                 }).show();
                     }
                 })
-                .send();
+                .start();   // send () 以过期
 
     }
     static Activity getContext(Object o) {

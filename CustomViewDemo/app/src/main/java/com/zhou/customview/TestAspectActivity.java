@@ -38,16 +38,17 @@ public class TestAspectActivity extends AppCompatActivity {
 
         final ViewTreeObserver viewTreeObserver = bt.getViewTreeObserver();
         viewTreeObserver.addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
-
             @Override
             public void onGlobalLayout() {
                 bt.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+                /**
+                 * 直接是无法获取view宽高(0,0),
+                 */
                 btWidht = bt.getWidth();
                 btHeight = bt.getHeight();
                 bt = findViewById(R.id.bt);
                 btX = (int) bt.getX();
                 btY = (int) bt.getY();
-
 
                 Log.e("test", "width :" + btWidht);
             }
