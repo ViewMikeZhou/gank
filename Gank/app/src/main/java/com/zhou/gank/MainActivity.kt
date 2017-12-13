@@ -1,16 +1,13 @@
 package com.zhou.gank
 
-import android.Manifest
 import android.annotation.SuppressLint
 import android.os.Build
 import android.os.Bundle
 import android.os.Environment
 import android.support.annotation.RequiresApi
-import android.support.v4.app.ActivityCompat
 import android.support.v4.app.Fragment
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
-import android.telephony.TelephonyManager
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
@@ -38,14 +35,13 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         initToolbar()
 
-        var list :Array<String> = arrayOf(Manifest.permission.READ_PHONE_STATE)
-        ActivityCompat.checkSelfPermission(this,Manifest.permission.READ_PHONE_STATE)
+       /* ActivityCompat.checkSelfPermission(this,Manifest.permission.READ_PHONE_STATE)
 
 
 
         var manager = getSystemService(TELEPHONY_SERVICE) as TelephonyManager
         var deviceId = manager.deviceId
-        Log.e("test",deviceId)
+        Log.e("test",deviceId)*/
 
     }
 

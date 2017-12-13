@@ -19,7 +19,7 @@ import static com.zhou.gank.retrofit.DefaultObserver.ExceptionReason.CONNECT_TIM
 import static com.zhou.gank.retrofit.DefaultObserver.ExceptionReason.PARSE_ERROR;
 import static com.zhou.gank.retrofit.DefaultObserver.ExceptionReason.UNKNOWN_ERROR;
 
-/** Observer 错误扩展
+/** Observer 错误扩展       http://blog.csdn.net/qq_20521573
  * 使用 :
  *          .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
@@ -34,8 +34,12 @@ public class DefaultObserver<T> implements Observer<T> {
     }
 
     @Override
-    public void onNext(T value) {
-
+    public void onNext(T respone) {
+       /* if (!response.isError()) {
+            onSuccess(response);
+        } else {
+            onFail(response, response.getCode());
+        }*/
     }
 
     @Override
@@ -85,6 +89,46 @@ public class DefaultObserver<T> implements Observer<T> {
                 break;*/
         }
     }
+
+
+    /**
+     * 服务器返回数据，但响应码不为200
+     *
+     * @param response 服务器返回的数据
+     */
+   /* public void onFail(T response, int code) {
+        String message = response.getMessage();
+        switch (code) {
+            case TOKEN_EXPIRED: //  token过期 刷新token
+                refreshToken();
+                break;
+            case REFRESH_TOKEN_EXPIRED:// refresh_token过期
+            case TOKEN_INCORRECT:// token错误重新登录
+                SharedPreferencesHelper.put(activity, "isLogin", false);
+                ToastUtils.show("token错误，请重新登录，跳转到登录页面...");
+                break;
+            default:
+                showToast(message);
+                break;
+        }
+    }
+
+    刷新token
+    private void refreshToken() {
+        new RequestHelper((BaseActivity) activity, new RequestHelper.RequestCallback() {
+            @Override
+            public void onTokenUpdateSucceed() {
+                onTokenUpdateSuccess();
+            }
+        }).refreshToken();
+    }
+
+    public void onTokenUpdateSuccess() {
+    }*/
+
+
+
+
 
 
     /**

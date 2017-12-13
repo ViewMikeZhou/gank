@@ -52,11 +52,21 @@ class GankListFrgment : BaseLazyFragment(), BaseGankView {
         recycleView = view?.find(R.id.gank_list_recycle_view)
         // 传入application context解决内存泄露
         recycleView?.layoutManager = LinearLayoutManager(AppMe.instance)
+
         refresh?.setOnRefreshListener {
             basePresent?.loadData()
         }
         refresh?.isRefreshing = true
         refresh?.progressViewEndOffset
+
+        recycleView?.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+            override fun onScrolled(recyclerView: RecyclerView?, dx: Int, dy: Int) {
+                super.onScrolled(recyclerView, dx, dy)
+                Log.e("test","dx:$dx ,dy :$dy,recycleView?.layoutManager.hight : ${recycleView?.layoutManager?.height}")
+            }
+        })
+
+
     }
 
     override fun loadData() {
@@ -89,6 +99,8 @@ class GankListFrgment : BaseLazyFragment(), BaseGankView {
      */
     override fun loadAndroidData(androidBeanList: List<AndroidBean>) {
         var androidAdapter = AndroidDataAdapter(R.layout.android_data_item, androidBeanList) as BaseQuickAdapter<Int, BaseViewHolder>
+       // androidAdapter.setLoadMoreView(CustomLoadMoreView()) 自定义加载更多;
+
         loadDataShouldDo(androidAdapter)
     }
 
@@ -116,7 +128,6 @@ class GankListFrgment : BaseLazyFragment(), BaseGankView {
         Log.e("test", "休闲视频")
         var suggestAdatper = SuggestDataAdatper(R.layout.suggest_data_item, suggestBeanList) as BaseQuickAdapter<Int, BaseViewHolder>
         loadDataShouldDo(suggestAdatper)
-
     }
 
 }
