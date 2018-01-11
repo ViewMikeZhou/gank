@@ -3,7 +3,6 @@ package com.zhou.customview
 import android.content.Context
 import android.graphics.*
 import android.util.AttributeSet
-import android.util.Log
 import android.view.View
 import org.jetbrains.anko.displayMetrics
 
@@ -75,7 +74,7 @@ class ProgressCustomView:View {
 
         var tW = titleRects[0].width()
         var tH = titleRects[0].height()
-        Log.e("test","tW --> $tW ,tH --> $tH,bmW --> ${bmComplete.width}")
+      //  Log.e("test","tW --> $tW ,tH --> $tH,bmW --> ${bmComplete.width}")
 
 
         return totalLineW + totalbmW

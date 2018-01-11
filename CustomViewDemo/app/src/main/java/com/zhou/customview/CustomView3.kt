@@ -32,6 +32,8 @@ class CustomView3 : View {
 
         //控件完全显示所需高度!
 
+
+
         /**
          *  MeasureSpec.EXACTLY 相当于 将高固定为 100dp 或设置为 matchParter
          */
