@@ -36,9 +36,6 @@ class MainActivity : AppCompatActivity() {
         initToolbar()
 
        /* ActivityCompat.checkSelfPermission(this,Manifest.permission.READ_PHONE_STATE)
-
-
-
         var manager = getSystemService(TELEPHONY_SERVICE) as TelephonyManager
         var deviceId = manager.deviceId
         Log.e("test",deviceId)*/

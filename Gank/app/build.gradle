@@ -54,4 +54,6 @@ dependencies {
     // 换肤库
   //  compile 'com.meiyou:android-skin:1.0.3'
     implementation project(':skinlib')
+    //6.0权限
+    implementation 'com.yanzhenjie:permission:1.1.2'
 }
